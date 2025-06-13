@@ -65,7 +65,7 @@ input{
     width: 85%;
 }
 
-#p-price{
+#p-price, #t-price{
     background-color: gray;
     color: white;
 }
