@@ -1,2 +1,3 @@
 # Billing-System
-College Project
+
+The Main Page is main.html, open it and add changes.
