@@ -104,6 +104,16 @@ input{
   display: block;
 }
 
+#bs-ovr .about-container{
+    display: flex;
+    margin: 5em;
+    width: 100em;
+    height: 20em;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
