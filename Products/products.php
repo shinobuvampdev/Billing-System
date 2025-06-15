@@ -19,9 +19,8 @@ if($conn->connect_error){
     $stmt = $conn->prepare("Insert INTO product_list(ProductID, ProductName, ProductPrice)
     values (?,?,?)");
     $stmt->bind_param("ssi", $pid, $pname, $pprice);
-
+    echo("Product Added");
     $stmt->execute();
-    echo "Inputted The Values";
     $stmt->close();
     $conn->close();
 }

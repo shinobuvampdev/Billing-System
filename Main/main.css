@@ -76,6 +76,10 @@ input{
     font-size: 2rem;
 }
 
+#bs-ovr #t-price{
+    grid-column: 1/span 2;
+}
+
 .dropbtn {
   background-color: white;
   color: black;
@@ -89,7 +93,8 @@ input{
 }
 
 .dropdown-content {
-  display: none;
+  display: flex;
+  flex-wrap: wrap;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
@@ -97,7 +102,7 @@ input{
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content button {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -114,7 +119,7 @@ input{
     align-items: center;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content button:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
 

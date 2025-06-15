@@ -13,9 +13,10 @@
         <div class="container-fluid"> 
             <header class="d-flex justify-content-center py-3 main-header"> 
                 <ul class="nav nav-pills"> 
-                    <li class="nav-item"><a href="../Main/main.html" class="nav-link" aria-current="page">Billing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active">Product List</a></li>
-                    <li class="nav-item"><a href="../CustomerList/customer.html" class="nav-link">Customer List</a></li>
+                    <li class="nav-item"><a href="../Main/main.php" class="nav-link" aria-current="page">Billing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">Products</a></li>
+                    <li class="nav-item"><a href="../CustomerList/customer.php" class="nav-link">Billing History</a></li>
+                    <li class="nav-item"><a href="/DBMS%20Project/Productlist/productlist.php" class="nav-link">Products List</a></li>
                     <li class="nav-item"><a href="../About/about.html" class="nav-link">About</a></li> 
                 </ul> 
             </header> 
@@ -23,7 +24,7 @@
 
 
       <div class="billing-container">
-            <form id="requestForm" action="products.php" method="POST">
+            <form id="requestForm" action="products.php" method="POST" target="_blank">
                 <div class="form-container">
                     <h1 class="billing-header">Add Product</h1>
 
@@ -40,13 +41,10 @@
                         <input type="text" id="pid" name="pprice" required>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary form-button" id="submit_btn">Submit</button>
+                    <button type="submit" class="btn btn-primary form-button" id="submit_bn">Submit</button>
                 </div>
             </form>
         </div>
-
-
-
 
 
 
@@ -80,6 +78,6 @@
        </div>
     </div>    
     <script src="../Main/main.js"></script>
-    <script src="producti.js"></script>
+    <script src="product.js"></script>
 </body>
 </html>

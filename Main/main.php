@@ -1,3 +1,18 @@
+<?php
+$host = "localhost";
+$user = "root";
+$password = "srijanlovessagnik";
+$database="billing_system";
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$conn = new mysqli($host, $user, $password, $database);
+
+if($conn->connect_error){
+    die("Connection failed:" .$conn->connect_error);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +21,17 @@
     <title>Billing System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body id="bs-ovr">
     <div class="flex-container">
         <div class="container-fluid"> 
             <header class="d-flex justify-content-center py-3 main-header"> 
                 <ul class="nav nav-pills"> 
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Billing</a></li>
-                    <li class="nav-item"><a href="/DBMS%20Project/ProductList/product.html" class="nav-link">Product List</a></li>
-                    <li class="nav-item"><a href="/DBMS%20Project/CustomerList/customer.html" class="nav-link">Customer List</a></li>
+                    <li class="nav-item"><a href="" class="nav-link active" aria-current="page">Billing</a></li>
+                    <li class="nav-item"><a href="/DBMS%20Project/Products/product.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="/DBMS%20Project/CustomerList/customer.php" class="nav-link">Billing History</a></li>
+                    <li class="nav-item"><a href="/DBMS%20Project/Productlist/productlist.php" class="nav-link">Products List</a></li>
                     <li class="nav-item"><a href="/DBMS%20Project/About/about.html" class="nav-link">About</a></li> 
                 </ul> 
             </header> 
@@ -36,14 +53,28 @@
                     <div class="form-part">
                         <label for="fname form-part">Product:</label><br>
                         <div class="dropdown">
-                            <button class="dropbtn form-part">Select</button>
+                            <button class="dropbtn form-part" id="select-btn"></button>
                             <div class="dropdown-content">
-                                <a href="#">Load Shit</a>
-                                <a href="#">Product</a>
-                                <a href="#">From PHP</a>
+                                <!-- test stuff here -->
+                                <button type="button" class="btn items-btn">Temp1</button> 
+                                <button type="button" class="btn items-btn">Temp2</button>
+                                <button type="button" class="btn items-btn">Temp3</button>
+                                <?php
+                                    $retrieve = "SELECT ProductName FROM product_list";
+                                    $result=mysqli_query($conn,$retrieve);
+                                    while ($row = $result->fetch_assoc()):
+                                    ?>
+                                    <button type="button" class="btn items-btn"><?php echo $row['ProductName']; ?></button>
+                                <?php endwhile; ?>
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-part">
+                        <label for="p-ID">Product ID:</label><br>
+                        <input type="text" id="p-ID" name="p-ID" readonly>
+                    </div>
+
                     <div class="form-part">
                         <label for="p-price">Product Price:</label><br>
                         <input type="text" id="p-price" name="p-price" readonly>
@@ -53,7 +84,7 @@
                         <label for="pquantity">Product Quantity:</label><br>
                         <input type="text" id="pquantity" name="pquantity" required><br>
                     </div>
-                    <div class="form-part">
+                    <div class="form-part totalPrice">
                         <label for="t-price">Total Price:</label><br>
                         <input type="text" id="t-price" name="t-price" readonly>
                     </div>
@@ -62,9 +93,8 @@
                 </div>
             </form>
         </div>
-    
-
     </div>
-    <script src="main.js"></script>
+
+    <script type="text/javascript" src="stuff.js"></script>
 </body>
 </html>
