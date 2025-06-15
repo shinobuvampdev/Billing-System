@@ -38,7 +38,7 @@ if($conn->connect_error){
         </div>
         
         <div class="billing-container">
-            <form action="connect.php" method="post">
+            <form action="connect.php" method="post" target="_blank">
                 <div class="form-container">
                     <h1 class="billing-header">Billing Information</h1>
 
@@ -55,10 +55,6 @@ if($conn->connect_error){
                         <div class="dropdown">
                             <button class="dropbtn form-part" id="select-btn"></button>
                             <div class="dropdown-content">
-                                <!-- test stuff here -->
-                                <button type="button" class="btn items-btn">Temp1</button> 
-                                <button type="button" class="btn items-btn">Temp2</button>
-                                <button type="button" class="btn items-btn">Temp3</button>
                                 <?php
                                     $retrieve = "SELECT ProductName FROM product_list";
                                     $result=mysqli_query($conn,$retrieve);

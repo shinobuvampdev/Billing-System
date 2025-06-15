@@ -45,25 +45,27 @@ if($conn->connect_error){
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Customer Name</th>
-                        <th scope="col">Mobile No</th>
-                        <th scope="col">Product ID</th>
+                        <th scope="col">Product Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Total Price</th>
+                        <th scope="col"></th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $retrieve = "SELECT * FROM customer_list";
+                    $retrieve = "SELECT customer_list.CustID, customer_list.Custname, product_list.ProductName, customer_list.Quantity, customer_list.TotalPrice
+                      FROM customer_list INNER JOIN product_list ON customer_list.ProductID = product_list.ProductID";
                     $result=mysqli_query($conn,$retrieve);
                     while ($row = $result->fetch_assoc()):
                     ?>
                         <tr>
                             <td th scope="row"><?php echo $row['CustID']; ?></td>
                             <td><?php echo $row['Custname']; ?></td>
-                            <td><?php echo $row['MobileNo']; ?></td>
-                            <td><?php echo $row['ProductID']; ?></td>
+                            <td><?php echo $row['ProductName']; ?></td>
                             <td><?php echo $row['Quantity']; ?></td>
                             <td><?php echo $row['TotalPrice']; ?></td>
+                            <td><button class="delete-btn"><image src="trash.svg"/></button></td>
                         </tr>
                     <?php endwhile; ?>
             </tbody>

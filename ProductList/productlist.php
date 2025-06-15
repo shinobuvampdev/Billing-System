@@ -51,7 +51,8 @@ if($conn->connect_error){
                 </thead>
                 <tbody>
                     <?php
-                    $retrieve = "SELECT * FROM product_list";
+                    // $retrieve1 = "CREATE VIEW productList AS SELECT * FROM product_list"; --Write in Exam Sheet
+                    $retrieve = "SELECT * FROM productlist";
                     $result=mysqli_query($conn,$retrieve);
                     while ($row = $result->fetch_assoc()):
                     ?>

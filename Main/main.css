@@ -93,8 +93,7 @@ input{
 }
 
 .dropdown-content {
-  display: flex;
-  flex-wrap: wrap;
+  display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
@@ -119,7 +118,7 @@ input{
     align-items: center;
 }
 
-.dropdown-content button:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
