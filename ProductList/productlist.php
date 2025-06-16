@@ -47,12 +47,13 @@ if($conn->connect_error){
                         <th scope="col">Product ID</th>
                         <th scope="col">Product Name</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Quantity Sold</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     // $retrieve1 = "CREATE VIEW productList AS SELECT * FROM product_list"; --Write in Exam Sheet
-                    $retrieve = "SELECT * FROM productlist";
+                    $retrieve = "SELECT * FROM product_list";
                     $result=mysqli_query($conn,$retrieve);
                     while ($row = $result->fetch_assoc()):
                     ?>
@@ -60,10 +61,26 @@ if($conn->connect_error){
                             <td th scope="row"><?php echo $row['ProductID']; ?></td>
                             <td><?php echo $row['ProductName']; ?></td>
                             <td><?php echo $row['ProductPrice']; ?></td>
+                            <td><?php echo $row['SellingQ']; ?></td>
                         </tr>
                     <?php endwhile; ?>
             </tbody>
             </table>
+            <br>
+            <br>
+            <h1>Total Quantity Sold: <?php 
+                $sql = "SELECT SUM(SellingQ) AS total FROM product_list";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $sum = $row["total"];
+                echo $sum;
+                } else {
+                $sum = 0;
+                }
+            ?> </h1>
+        
         </div>
         
     </div>

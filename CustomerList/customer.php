@@ -65,7 +65,7 @@ if($conn->connect_error){
                             <td><?php echo $row['ProductName']; ?></td>
                             <td><?php echo $row['Quantity']; ?></td>
                             <td><?php echo $row['TotalPrice']; ?></td>
-                            <td><button class="delete-btn"><image src="trash.svg"/></button></td>
+                            <td><button class="delete-btn" id=<?php echo $row['CustID']; ?>><image src="trash.svg"/></button></td>
                         </tr>
                     <?php endwhile; ?>
             </tbody>

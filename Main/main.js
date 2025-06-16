@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    const button = document.getElementById('items-btn');
+
+const button = document.getElementById('items-btn');
+if(button)
     button.textContent = "Select";
-});
 
