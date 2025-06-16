@@ -28,7 +28,7 @@ SELECT * FROM products
 use to find the products that were purchased
 ANSWER customer.php line-- 57
 
-~5. Nested Queries is query inside another query. idk this one ~
+~5. Nested Queries is query inside another query. idk this one~
 
 ~6. View is a virtual table created by saving a select query. works same as selct just for displaying~
 ANSWER: productlist.php line-- 54
