@@ -41,6 +41,19 @@ if($conn->connect_error){
             <!-- <?php echo $msg;?> -->
             <h1 class="mt-4">Products Record</h1>
             <br>
+            <h1>Total Quantity Sold: <?php 
+                $sql = "SELECT SUM(SellingQ) AS total FROM product_list";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $sum = $row["total"];
+                echo $sum;
+                } else {
+                $sum = 0;
+                }
+            ?> </h1>
+            <br>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -66,20 +79,6 @@ if($conn->connect_error){
                     <?php endwhile; ?>
             </tbody>
             </table>
-            <br>
-            <br>
-            <h1>Total Quantity Sold: <?php 
-                $sql = "SELECT SUM(SellingQ) AS total FROM product_list";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $sum = $row["total"];
-                echo $sum;
-                } else {
-                $sum = 0;
-                }
-            ?> </h1>
         
         </div>
         
