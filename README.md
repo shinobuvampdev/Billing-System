@@ -8,12 +8,12 @@ The Main Page is main.html, open it and add changes.
 
 ANS: productlist.php-- Line 56
 
-~2. Aggregate Functions ~
+~2. Aggregate Functions
 COUNT() – number of rows 
 SUM() – total of a column
 AVG() – average value
 MAX() / MIN() – highest or lowest value
-probably use count to get total number of products and display in products page
+probably use count to get total number of products and display in products page~
 
 ANSWER: productlist.php-- 72
 
